@@ -24,21 +24,19 @@ gridSizeForm.addEventListener('submit', submitProcess)
 
 
 function makeGrid(height, width) {
+   // Clear children of table each time
+   pixelCanvas.innerHTML = '';
 
-// Clear children of table each time
-pixelCanvas.innerHTML = '';
-
-for (let i = 0; i < height; i++) {
-   // Make table rows for equal to height
-   let currentRow = document.createElement('tr');
-   for (let j = 0; j < width; j++) {
-      // Make cells equal to width for each row
-      currentCell = document.createElement('td');
-      // Append each cell to the current row
-      currentRow.appendChild(currentCell);
+   for (let i = 0; i < height; i++) {
+      // Make table rows for equal to height
+      let currentRow = document.createElement('tr');
+      for (let j = 0; j < width; j++) {
+         // Make cells equal to width for each row
+         currentCell = document.createElement('td');
+         // Append each cell to the current row
+         currentRow.appendChild(currentCell);
+      }
+      // Append current row with its appended cells to the main table
+      pixelCanvas.appendChild(currentRow);
    }
-   // Append current row with its appended cells to the main table
-   pixelCanvas.appendChild(currentRow);
-}
-
 }
