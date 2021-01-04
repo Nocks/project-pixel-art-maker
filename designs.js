@@ -8,7 +8,7 @@ const gridSizeForm = document.getElementById('sizePicker');
 const pixelCanvas = document.getElementById('pixelCanvas');
 
 
-function submitProcess(event) {
+function submitProcess() {
    event.preventDefault();
 
    //capture grid size values
@@ -20,7 +20,7 @@ function submitProcess(event) {
 }
 
 // On submit event listener on grid size form
-gridSizeForm.addEventListener('submit', submitProcess)
+gridSizeForm.addEventListener('submit', submitProcess);
 
 
 function makeGrid(height, width) {
@@ -40,3 +40,9 @@ function makeGrid(height, width) {
       pixelCanvas.appendChild(currentRow);
    }
 }
+
+function pixelPainter(event) {
+   event.target.bgColor = selectedColour.value;
+}
+
+pixelCanvas.addEventListener('click', pixelPainter);
